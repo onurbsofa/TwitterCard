@@ -4,7 +4,7 @@ export function TwitterFollowCard({children, userName,initialIsFollowed}){
    const [isFollowed, setIsFollowed] = useState(initialIsFollowed)//valor inicial del estado del componente para que sea dinamico
     /*hook de estado destrucring de objeto useState retorna un array con dos elementos el primero es el estado y el segundo es una funcion para actualizar el estado*/
     const text = isFollowed ? 'Siguiendo' : 'Seguir'//if ternario 
-    const buttonClassName = isFollowed ? 'tw-followCard-button isFollowed' : 'tw-followCard-button'
+    const buttonClassName = isFollowed ? 'tw-followCard-button is-following' : 'tw-followCard-button'
 
     const handleButtonClick = () => {
         setIsFollowed(!isFollowed)
@@ -27,9 +27,9 @@ export function TwitterFollowCard({children, userName,initialIsFollowed}){
             <aside>
                 <button 
                     className={buttonClassName} 
-                    onClick={handleButtonClick}
-                > 
-                    {text}
+                    onClick={handleButtonClick}> 
+                    <span className="tw-followCard-text">{text}</span>
+                    <span className='tw-followCard-stopFollow'>Dejar de seguir</span>
                 </button>
             </aside>
         </article>
